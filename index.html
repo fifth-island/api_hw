@@ -16,7 +16,7 @@
     }
 
     var requestObj = {
-        'url': cors_anywhere_url + '/' + yelp_search_url,
+        'url': cors_anywhere_url + yelp_search_url,
         'data': {term: 'latin', location: 'USA', limit: 6},
         headers: {'Authorization': token},
         error: function(jqXHR, textStatus, errorThrown) {
