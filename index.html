@@ -18,7 +18,7 @@
     var requestObj = {
         'url': cors_anywhere_url + '/' + yelp_search_url,
         'data': {term: 'latin', location: 'USA', limit: 6},
-        headers: {'Authorization': token},
+        headers: {'Authorization': token, 'x-cors-api-key': '0e5f3791-f348-40ed-afce-1c3d20223c2b'},
         error: function(jqXHR, textStatus, errorThrown) {
             console.log( 'AJAX error, jqXHR = ', jqXHR, ', textStatus = ',
                 textStatus, ', errorThrown = ', errorThrown)
