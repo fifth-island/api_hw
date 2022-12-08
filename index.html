@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<script>   
+    var token = 'Bearer vks7NQ4guXXDQXlfP9fj8Pflduxh4l8uFDrm3cyh7zxPOyJPYRITZJSrTlSWNKyYHa2YCe_nqFGcDd4udbxyJwmGXUWyQVO6mLyjpsM_zTcUyCFCC3JJVUDtjR2QY3Yx'
+    var cors_anywhere_url = 'https://proxy.cors.sh/'
+    var yelp_search_url = 'https://api.yelp.com/v3/businesses/search'
+    function clientCallback(){
+        console.log('made it to the client callback')
+    }
+
+    var requestObj = {
+        'url': cors_anywhere_url + '/' + yelp_search_url,
+        'data': {term: 'latin', location: 'USA', limit: 6},
+        headers: {'Authorization': token},
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log( 'AJAX error, jqXHR = ', jqXHR, ', textStatus = ',
+                textStatus, ', errorThrown = ', errorThrown)
+
+        }
+    }
+
+    var restaurants = []
+
+    $.ajax(requestObj)
+        .done(function(response) {
+            console.log('typeof response = ' + typeof response)
+            console.log('response =', response)
+        })
+    
+</script>
+
+
+</body>
+</html>
